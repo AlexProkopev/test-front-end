@@ -10,7 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/react_vite">
+    <BrowserRouter basename="/test-front-end">
     <Provider store={store}>
      
       <App />
