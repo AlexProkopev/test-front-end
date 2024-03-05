@@ -1,27 +1,38 @@
+import Layout from './components/Layout/Layout';
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from 'components/SharedLayout/SharedLayout';
-import FirstPage from 'pages/FirstPage/FirstPage';
-import SecondPage from 'pages/SecondPage/SecondPage';
-import HalfPage from 'pages/HalfPage/HalfPage';
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
-import { AppWrapper } from './App.styled';
+import Home from './pages/Home/Home';
+import Catalog from './pages/Catalog/Catalog';
+import Favorites from './pages/Favorites/Favorites';
+import { CATALOG_PATH, FAVORITES_PATH, HOME_PATH } from './pages/routes';
 
-const test = import.meta.env.VITE_API_TEST;
+const App = () => {
+ 
 
-function App() {
-  console.log(test);
+  const ROUTES = [
+    {
+      path: HOME_PATH,
+      element: <Home />,
+    },
+    {
+      path: CATALOG_PATH,
+      element: <Catalog />,
+    },
+    {
+      path: FAVORITES_PATH,
+      element: <Favorites />,
+    },
+  ];
+
   return (
-    <AppWrapper>
+    <Layout>
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="/first" element={<FirstPage />} />
-          <Route path="/second" element={<SecondPage />}>
-            <Route path=":half" element={<HalfPage />} />
-          </Route>
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
+        {ROUTES.map(({ path, element }) => {
+          return <Route key={path} path={path} element={element} />;
+        })}
+        <Route path="*" element={<Home />} />
       </Routes>
-    </AppWrapper>
+    </Layout>
   );
-}
+};
+
 export default App;

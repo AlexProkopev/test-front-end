@@ -1,0 +1,1 @@
+export const selectCarBrands = store => store.filters.carBrand;
