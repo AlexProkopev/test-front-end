@@ -12,7 +12,7 @@ import IconHeartEmpty from '../ReUseComponents/IconFavorite/IconHeartEmpty';
 import { addToDataModal } from '../../redux/modal/modal.reducer';
 import { sliceStringAddress } from '../../services/modalFunction';
 import { defaultPhoto } from '../../redux/helpers';
-import { loadMoreItems } from '../../services/pagination';
+
 import { Notify } from 'notiflix';
 
 const CatalogList = ({ dataCatalog }) => {
@@ -27,9 +27,21 @@ const CatalogList = ({ dataCatalog }) => {
     if (dataCatalog) {
       const initialItems = dataCatalog.slice(0, itemsPerPage);
       setCurrentItems(initialItems);
-    } 
+    } //Режит массив на 12 элементов.
   }, [dataCatalog]);
 
+  //Пагинация на данные.
+
+  const loadMoreItems = () => {
+    if (dataCatalog) {
+      const nextItems = dataCatalog.slice(
+        currentItems.length,
+        currentItems.length + itemsPerPage
+      );
+      setCurrentItems((prevItems) => [...prevItems, ...nextItems]);
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
 
   // Функция добавляет данные в фавориты.
 
