@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCarsData } from '../../redux/car-data/carApi.selector';
+import {
+  selectCarsData,
+  selectError,
+  selectLoading,
+} from '../../redux/car-data/carApi.selector';
 import CatalogList from '../../components/Catalog/CatalogList';
 import { fetchCarsList } from '../../redux/car-data/services';
 import { useEffect } from 'react';
@@ -7,13 +11,15 @@ import FiltersForm from '../../components/FiltersForm/FiltersForm';
 import { selectCarBrands } from '../../redux/filtres/filters.selector';
 import { selectStatusModal } from '../../redux/modal/modal.selector';
 import Modal from '../../components/Modal/Modal';
+import { Notify } from 'notiflix';
 
 const Catalog = () => {
   const carsData = useSelector(selectCarsData);
+  const loader = useSelector(selectLoading);
+  const error = useSelector(selectError);
   const filterToBrand = useSelector(selectCarBrands);
-  const modalStatus = useSelector(selectStatusModal)
+  const modalStatus = useSelector(selectStatusModal);
   const dispatch = useDispatch();
-
 
   const filterToMark = () => {
     if (
@@ -23,7 +29,8 @@ const Catalog = () => {
       filterToBrand.rentalPrice !== undefined &&
       filterToBrand.make.length > 0 &&
       filterToBrand.rentalPrice.length > 0
-    )
+    ) {
+      Notify.success('Car Brand Filtered Successfully');
       return (
         carsData &&
         carsData.filter((item) => {
@@ -33,6 +40,7 @@ const Catalog = () => {
           );
         })
       );
+    }
 
     return carsData;
   };
@@ -43,8 +51,10 @@ const Catalog = () => {
   }, [dispatch]);
 
   return (
-    <section className='container '>
+    <section className="container ">
       <FiltersForm />
+      {loader && <div>Loading...</div>}
+      {error && <div>Error...</div>}
       {carsData && <CatalogList dataCatalog={catalogByMark} />}
       {modalStatus && <Modal />}
     </section>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { MARK_CAR, PRICE_HOUR } from '../../redux/helpers';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
@@ -24,6 +24,8 @@ const FiltersForm = () => {
     });
     setFocusState(false);
   };
+
+  
  
   return (
     <FilterFormStyled
@@ -31,7 +33,7 @@ const FiltersForm = () => {
       $brandFocus={brandFocus}
       onSubmit={(e)=> handleSubmit(e,dispatch,addToCarBrand,formData)}
     >
-      <div className="label-container brand-container">
+      <div className="label-container brand-container font-manrope">
         <label htmlFor="make">Car brand</label>
         <select
           onFocus={() => setBrandFocus(true)}

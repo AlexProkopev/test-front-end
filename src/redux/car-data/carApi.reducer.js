@@ -13,7 +13,11 @@ const carsSlice = createSlice({
   name: 'carList',
   initialState,
   reducers: {
- 
+       closePage: (state) => {
+        state.isLoading = false;
+        state.isError = null;
+        state.cars = null;
+       }
   },
   extraReducers: (builder) =>
     builder
@@ -33,6 +37,6 @@ const carsSlice = createSlice({
       }),
 });
 
-// export const {  } = carsSlice.actions;
+export const { closePage } = carsSlice.actions;
 
 export const carsReducer = carsSlice.reducer;

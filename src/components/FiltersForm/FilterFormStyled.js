@@ -17,7 +17,6 @@ margin-top: 40px;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.27;
-    color: var(--label-color);
     margin-bottom: 8px;
   }
 

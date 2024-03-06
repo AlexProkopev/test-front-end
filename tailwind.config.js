@@ -7,9 +7,11 @@ export default {
       'top-right': 'right top 8rem',
     },
     extend: {
-      fontFamily:{
-
-      }
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
     },
     container: {
       center: true,
@@ -40,6 +42,8 @@ export default {
       "bg-input-color" : "#f7f7fb",
       "backDrop": "rgba(18, 20, 23, 0.5)",
       "third-text-color":"#363535",
+      "hover-bg-btn": "#0b44cd",
+      "modal-conditions-color": "#f9f9f9",
 
       // 'primary-text-button-color': '#161F37',
       // 'button-hover-color': '#0A0A11',

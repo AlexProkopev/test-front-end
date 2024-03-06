@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Inter', sans-serif;
+    src: url('../public/fonts/Inter/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Manrope', sans-serif;
+    src: url('../public/fonts/Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('../public/fonts/Montserrat//Montserrat-VariableFont_wght.ttf') format('truetype');
+}

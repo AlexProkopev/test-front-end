@@ -31,12 +31,14 @@ const Modal = () => {
     rentalPrice,
   } = dataModal;
 
+
+
   return (
     <div
       className="bg-backDrop w-full h-full fixed top-0 left-0 z-[10000]"
       onClick={(e) => closeByBackDrop(e, dispatch, closeModal)}
     >
-      <div className="fixed rounded-2xl bg-white-color top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[541px] pt-[40px] pl-[40px] pr-[40px] pb-[40px]">
+      <div className="fixed rounded-2xl bg-white-color top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[541px] pt-[40px] pl-[40px] pr-[40px] pb-[40px] font-manrope">
         <button
           type="button"
           onClick={() => dispatch(closeModal())}
@@ -59,7 +61,7 @@ const Modal = () => {
         >
           <p>{sliceStringAddress(address).split(" ")[0]}</p>
           <div>|</div>
-          <p>Ukraine</p>
+          <p>{sliceStringAddress(address).split(" ")[2]}</p>
           <div>|</div>
           <p>Id: {id}</p>
           <div>|</div>
@@ -89,19 +91,20 @@ const Modal = () => {
           Rental Conditions:{' '}
         </p>
         <div
-          className="flex items-center flex-wrap font-normal text-xs leading-6 tracking-tight text-third-text-color"
+          className="flex items-center flex-wrap font-normal text-xs leading-6 tracking-tighter text-third-text-color font-montserrat"
           style={{ columnGap: '22px', rowGap: '15px' }}
         >
+     
           {rentalConditions.split('\n').map((rentalCondition, index) => (
-            <p key={index}> {rentalCondition} </p>
+            <p key={index} className='rounded-full pl-[7px] pr-[7px] pb-[14px] pt-[14px] bg-modal-conditions-color '> {rentalCondition} </p>
           ))}
-          <p>
+          <p className='rounded-full pl-[7px] pr-[7px] pb-[14px] pt-[14px] bg-modal-conditions-color '>
             Mileage:{' '}
             <span className="font-semibold text-btn-color">
               {mileageUpdate(mileage)}
             </span>
           </p>
-          <p>
+          <p className='rounded-full pl-[7px] pr-[7px] pb-[14px] pt-[14px] bg-modal-conditions-color '>
             Price:{' '}
             <span className="font-semibold text-btn-color">
               {rentalPrice.slice(1) + rentalPrice[0]}
@@ -120,3 +123,6 @@ const Modal = () => {
 };
 
 export default Modal;
+
+
+

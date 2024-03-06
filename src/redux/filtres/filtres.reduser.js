@@ -4,12 +4,13 @@ const initialState = {
     carBrand: {},
   };
   const filtersSlice = createSlice({
-    name: 'filtres',
+    name: 'filters',
     initialState,
     reducers: {
       addToCarBrand: (state, { payload }) => {
         state.carBrand = payload;
       },
+    
       
       
     }
