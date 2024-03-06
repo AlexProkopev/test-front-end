@@ -38,7 +38,7 @@ const Modal = () => {
       className="bg-backDrop w-full h-full fixed top-0 left-0 z-[10000]"
       onClick={(e) => closeByBackDrop(e, dispatch, closeModal)}
     >
-      <div className="fixed rounded-2xl bg-white-color top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[541px] pt-[40px] pl-[40px] pr-[40px] pb-[40px] font-manrope">
+      <div className="fixed rounded-2xl bg-white-color top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[541px] h-[1000px] pt-[40px] pl-[40px] pr-[40px] pb-[40px] font-manrope ">
         <button
           type="button"
           onClick={() => dispatch(closeModal())}
