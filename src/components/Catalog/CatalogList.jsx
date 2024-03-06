@@ -26,10 +26,10 @@ const CatalogList = ({ dataCatalog }) => {
     if (dataCatalog) {
       const initialItems = dataCatalog.slice(0, itemsPerPage);
       setCurrentItems(initialItems);
-    } //Режит массив на 12 элементов 
+    } //Режит массив на 12 элементов.
   }, [dataCatalog]);
 
-  //Пагинация на данные
+  //Пагинация на данные.
 
   const loadMoreItems = () => {
     if (dataCatalog) {
